@@ -1,0 +1,29 @@
+<main class="animated fadeIn">
+    
+<section fxLayout='row wrap' fxLayoutAlign="center start" fxLayoutGap="10px">
+    <h1 fxFlexFill class="mat-toolbar mat-primary mat-h1 heading-1 ">Греко-католицький молитовник</h1>
+
+  <div fxFlex="100" fxFlex.md="50%" fxFlex.gt-md="33%">
+      <mat-card>
+          <mat-card-title>
+              <mat-list routerLink="/childborn" routerLinkActive="active">
+                  <mat-grid-list cols="5" rowHeight="100px" gutterSize="10px">
+                      <mat-grid-tile [colspan]="2">
+                          <img src="/assets/img/img001.jpg" alt="діти" class="img-item">
+                      </mat-grid-tile>
+                      <mat-grid-tile [colspan]="3">
+                        <h6>Дев'ятниця <br> за ненароджену дитину</h6>
+                      </mat-grid-tile>
+                  </mat-grid-list>
+              </mat-list>
+          </mat-card-title>
+      </mat-card>
+  </div>
+</section>
+
+<footer class="mt-25">
+    <p>Для того, щоб синхронізувати Ваші налаштування <a routerLink="/login" routerLinkActive="active">Зареєструйтесь або залогінтесь</a></p>
+    <nov-theme-select></nov-theme-select>
+</footer>
+
+</main>

@@ -1,0 +1,36 @@
+<main class="h-100vh animated fadeInDown" fxLayout='row' fxLayoutAlign="center center">
+    <mat-card fxFlex="100" fxFlex.md="50%" fxFlex.gt-md="33%">
+        <mat-card-header>
+            <mat-card-title>Введіть логін та пароль , щоб ввійти або зареєструватись</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form (ngSubmit)="onSubmit()">
+                <mat-form-field class="w-100">
+                  <input matInput type="email" placeholder="Введіть email" [formControl]="emailFormControl"
+                  [errorStateMatcher]="matcher">
+                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Будь-ласка, введіть вірну ел. адресу
+                  </mat-error>
+                  <mat-error *ngIf="emailFormControl.hasError('required')">
+                    Ел. адреса <strong>обов'язкова</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="w-100" hintLabel="Мін 5 літер">
+                  <input matInput type="password" minlength="5" #passwordInput placeholder="Введіть пароль" [formControl]="passwordFormControl"
+                  [errorStateMatcher]="matcher">
+                  <mat-hint align="end">{{passwordInput.value?.length || 0}}/5</mat-hint>
+                  <mat-error *ngIf="passwordFormControl.hasError('required')">
+                    Пароль є <strong>обов'язковим</strong>
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-card-footer class="heigt-footer" fxLayout='row' fxLayoutAlign="end center">
+                    <button mat-button type="submit" color="primary" (click)="isLogin=false">ЗАРЕЄСТРУВАТИСЬ</button>
+                    <button mat-button type="submit" color="primary" (click)="isLogin=true">ВВІЙТИ</button>
+                </mat-card-footer>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</main>

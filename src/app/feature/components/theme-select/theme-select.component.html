@@ -1,0 +1,10 @@
+<mat-form-field>
+  <mat-select placeholder="Виберіть оформлення" [formControl]="choosenThemeId">
+    <mat-option *ngFor="let item of themingService.themes" [value]="item.id">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+          <div class="circle-option" [style.background-color]="item.color"></div>
+          <div>{{item.name}}</div>
+      </div>
+    </mat-option>
+  </mat-select>
+</mat-form-field>
