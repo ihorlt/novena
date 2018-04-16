@@ -26,11 +26,14 @@ export class ThemingService {
 
   constructor() {
     this._themeCssActive.next(this._themes[0]);
+    this._themeCssActive.subscribe(
+      theme => this.loadCSS(theme.file)
+    );
    }
 
-  get themeCssActive(): ReplaySubject<ThemeInterface> {
-    return this._themeCssActive;
-  }
+   get themeCssActive(): ReplaySubject<ThemeInterface>{
+     return this._themeCssActive;
+   }
 
   set themeCssActive(theme: ReplaySubject<ThemeInterface>) {
     this._themeCssActive = theme;
@@ -38,6 +41,31 @@ export class ThemingService {
 
   get themes(): ThemeInterface[] {
     return this._themes;
+  }
+
+  /**
+   * Load css file with help of link tag dynamically
+   * @param url css file with styles
+   */
+  public loadCSS(url) {
+    let head = document.getElementsByTagName('head')[0];
+    let links = head.getElementsByTagName('link');
+    let newThemeLinks = links[links.length-1];
+    
+    // if new link is added, just change href
+    if(newThemeLinks.getAttribute("id") === "new-theme-stylesheet-in-head-loaded"){
+      newThemeLinks.href = url;
+      return;
+    }
+
+    // Create link
+    let link = document.createElement('link');
+    link.href = url;
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.id = "new-theme-stylesheet-in-head-loaded";
+
+    head.insertAdjacentElement("beforeend", link);
   }
 
 }
