@@ -1,0 +1,94 @@
+<main class="main-padding animated fadeIn">
+  <section fxLayout='row' fxLayoutAlign="center start">
+    <div fxFlex="100%" fxFlex.sm="80%" fxFlex.gt-sm="50%">
+      <h2>
+        ОДНА ТАЄМНИЦЯ РОЗАРІЮ
+      </h2>
+
+      <ul>
+        <li>Слава Отцю ...</li>
+        <li>Отче Наш ...</li>
+        <li>Богородице Діво ... ( 10 раз )</li>
+      </ul>
+
+      <h2>
+        ЩОДЕННА МОЛИТВА
+      </h2>
+      <p>
+        Господи Ісусе! Через заступництво Твоєї Матері, Марії, Яка породила Тебе з любов’ю, а також за заступництвом св. Йосифа,
+        котрий піклувався про Тебе після народження, прошу Тебе за це зачате дитя, яке духовно приймаю і якому загрожує небезпека
+        вбивства. Прошу, дай його батькам любов і відвагу, щоб стерегли його життя, яке Ти Сам йому дав. Амінь.
+      </p>
+    </div>
+  </section>
+
+  <section fxLayout='row' fxLayoutAlign="end" class="mt-40 animated fadeIn animatedDelay">
+      <div fxFlex="20%" fxFlex.sm="15%" fxFlex.gt-sm="10%" fxFlexAlign="start">
+        <button mat-fab color="primary" routerLink="/childborn" routerLinkActive="active">
+          <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+          </svg>
+        </button>
+      </div>
+
+    <div fxFlex="20%" fxFlex.sm="15%" fxFlex.gt-sm="10%">
+      <button mat-fab color="primary" (click)="isBeginHidden=!isBeginHidden;(!isBeginHidden && !isAboutHidden)?isAboutHidden=true:'';">Почати</button>
+    </div>
+
+    <div fxFlex="20%">
+      <button mat-fab color="primary" (click)="isAboutHidden=!isAboutHidden;(!isAboutHidden && !isBeginHidden)?isBeginHidden=true:'';">
+        <svg fill="#FFFFFF" height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <section [hidden]="isBeginHidden" class="animated fadeIn">
+    <div fxLayout='row' fxLayoutAlign="center start">
+      <div fxFlex="100%" fxFlex.sm="80%" fxFlex.gt-sm="50%">
+        <h2>ДУХОВНЕ УСИНОВЛЕННЯ</h2>
+        <p>
+          <em>
+            Духовне усиновлення зачатої дитини розпочинається обітницею, яка складається в церкві або вдома перед хрестом чи іконою,
+            і має такий зміcт:
+          </em>
+        </p>
+        <p>
+          <strong>
+            Пресвята Діво Богородице Маріє, всі ангели та святі! Прагнучи нести допомогу ненародженим дітям, міцно постановляю і обіцяю,
+            що від сьогодні беру в духовне усиновлення одну дитину, ім'я якої знає тільки Бог. Хочу протягом 9 місяців щоденно
+            молитися про порятунок її життя, а також про справедливе й законне життя після народження.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <section [hidden]="isAboutHidden" class="animated fadeIn">
+    <div fxLayout='row' fxLayoutAlign="center start">
+      <div fxFlex="100%" fxFlex.sm="80%" fxFlex.gt-sm="50%">
+        <h2>Про Духовне Прийняття</h2>
+        <p>
+          <strong>
+            "Духовно усинови зачату дитину, щоб спасти її від убивства. Вона кличе про поміч також до тебе"
+          </strong>
+        </p>
+        <p>
+          Духовне прийняття зачатої дитини - це твоя молитва в обороні невідомої дитини, для якої існує загроза вбивства в утробі матері
+          - аборта. Це молитва за дитя, ім'я якої знає лише Бог.
+        </p>
+        <p>
+          Молитва триває 9 місяців і полягає в щоденному промовлянні однієї таємниці Вервиці (один "Отче Наш", десять "Богородице Діво",
+          один "Слава Отцю..."), а також додаткової молитви (див. вище):
+        </p>
+        <blockquote>
+          Молитовник. Ісусе, я уповаю на Тебе.- Львів: СПД Стефанія Смолюк, 2008.
+          <i>За дозволом Церковної влади.</i>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</main>

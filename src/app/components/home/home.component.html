@@ -7,12 +7,12 @@
       <mat-card>
           <mat-card-title>
               <mat-list routerLink="/childborn" routerLinkActive="active">
-                  <mat-grid-list cols="5" rowHeight="100px" gutterSize="10px">
-                      <mat-grid-tile [colspan]="2">
-                          <img src="/assets/img/img001.jpg" alt="діти" class="img-item">
+                  <mat-grid-list cols="6" rowHeight="100px" gutterSize="10px">
+                      <mat-grid-tile [colspan]="3">
+                          <img src="/assets/img/img002.jpg" alt="діти" class="img-item">
                       </mat-grid-tile>
                       <mat-grid-tile [colspan]="3">
-                        <h6>Дев'ятниця <br> за ненароджену дитину</h6>
+                        <h6>Дев'ятниці</h6>
                       </mat-grid-tile>
                   </mat-grid-list>
               </mat-list>
@@ -22,7 +22,7 @@
 </section>
 
 <footer class="mt-40">
-    <p>Для того, щоб синхронізувати Ваші налаштування <a routerLink="/login" routerLinkActive="active">Зареєструйтесь або залогінтесь</a></p>
+    <p *ngIf="!authService.isLoggedUser()">Для того, щоб синхронізувати Ваші налаштування <a routerLink="/login" routerLinkActive="active">Зареєструйтесь або залогінтесь</a></p>
     <nov-theme-select></nov-theme-select>
 </footer>
 

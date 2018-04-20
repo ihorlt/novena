@@ -7,11 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  // Shows or hides beggining pray
-  isBeginHidden = true;
-  // Shows or hides about this Novena
-  isAboutHidden = true;
-
   constructor() { }
 
   ngOnInit() {

@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
-
-export interface ThemeInterface {
-  id: number;
-  color: string;
-  file: string;
-  name: string;
-}
+import { ThemeInterface } from '../models/user';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class ThemingService {
@@ -24,11 +19,17 @@ export class ThemingService {
    */
   private _themeCssActive: ReplaySubject<ThemeInterface> = new ReplaySubject();
 
-  constructor() {
-    this._themeCssActive.next(this._themes[0]);
+  constructor(private authService: AuthService) {
+    if(authService.isLoggedUser() && authService.theme){
+      this._themeCssActive.next(authService.theme);
+    } else {
+      this._themeCssActive.next(this._themes[0]);
+    }
     this._themeCssActive.subscribe(
-      theme => this.loadCSS(theme.file)
-    );
+      theme => {
+        this.loadCSS(theme.file);
+        this.authService.theme = theme;
+      });
    }
 
    get themeCssActive(): ReplaySubject<ThemeInterface>{

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { RootComponent } from './root/root.component';
 import { HomeComponent } from './home/home.component';
+import { ChildBornComponent } from './child-born/child-born.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,7 @@ const routes: Routes = [
     component: RootComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'child-born', component: ChildBornComponent },
     ]
   }
 ];

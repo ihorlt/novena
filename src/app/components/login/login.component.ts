@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -28,7 +29,9 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(public authService: AuthService) { }
+  constructor(
+    public authService: AuthService,
+    private router: Router) { }
 
   getErrorMessage() {
     return this.emailFormControl.hasError('required') ? 'You must enter a value' :
@@ -44,6 +47,9 @@ export class LoginComponent implements OnInit {
       this.authService.emailLogin(this.emailFormControl.value, this.passwordFormControl.value);
     } else {
       this.authService.emailSignUp(this.emailFormControl.value, this.passwordFormControl.value);
+    }
+    if(this.authService.isLoggedUser()) {
+      this.router.navigate(['/index']);
     }
   }
 
